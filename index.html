@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Trello MernStack</title>
+    <script src="http://localhost:8097"></script>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+        (function() {
+          try {
+            const mode = localStorage.getItem('mui-mode');
+            if (mode) {
+              document.documentElement.setAttribute('data-mui-color-scheme', mode);
+            }
+          } catch (e) {
+            console.error('Failed to load mode from storage:', e);
+          }
+        })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
