@@ -22,6 +22,7 @@ function Templetes() {
   return (
     <Box>
       <Button
+        sx={{ color: 'white' }}
         id="basic-button-templetes"
         aria-controls={open ? 'basic-menu-templetes' : undefined}
         aria-haspopup="true"

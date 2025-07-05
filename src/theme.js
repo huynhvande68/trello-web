@@ -7,25 +7,25 @@ const theme = extendTheme({
     boardBarHeight: '60px',
   },
   colorSchemes: {
-    light: {
-      palette: {
-        primary: teal,
-        secondary: deepOrange
-      }
-    },
-    dark: {
-      palette: {
-        primary: cyan,
-        secondary: orange
-      }
-    }
+    // light: {
+    //   palette: {
+    //     primary: teal,
+    //     secondary: deepOrange
+    //   }
+    // },
+    // dark: {
+    //   palette: {
+    //     primary: cyan,
+    //     secondary: orange
+    //   }
+    // }
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'none',
-          fontWeight: 500,
+          borderWidth: '0.5px',
         }
       }
     }
@@ -33,27 +33,26 @@ const theme = extendTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme.palette.primary.main,
-          fontSize: '0.875rem',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: theme.palette.primary.light,
-          },
-          '&:hover': {
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.main,
-            }
-          },
-          '& fieldset': {
-            borderWidth: '1px !important',
-          },
-
+          // color: theme.palette.primary.main,
+          // fontSize: '0.875rem',
+          // '.MuiOutlinedInput-notchedOutline': {
+          //   borderColor: theme.palette.primary.light,
+          // },
+          // '&:hover': {
+          //   '.MuiOutlinedInput-notchedOutline': {
+          //     borderColor: theme.palette.primary.main,
+          //   }
+          // },
+          '& fieldset': {borderWidth: '0.5px !important',},
+          '&:hover fieldset': {borderWidth: '1px !important',},
+          '&:Mui-focused fieldset': {borderWidth: '1px !important',},
         })
       }
     },
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme.palette.primary.light,
+          // color: theme.palette.primary.light,
           '&.Mui-focused': {
             color: theme.palette.primary.main,
           },
@@ -63,6 +62,23 @@ const theme = extendTheme({
           ,
           fontSize: '0.875rem',
         })
+      }
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          '*::-webkit-scrollbar': {
+            width: '6px',
+            height: '6px',
+          },
+          '*::-webkit-scrollbar-thumb': {
+            backgroundColor: '#dcdde1',
+            borderRadius: '6px',
+          },
+          '*::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: 'white',
+          },
+        }
       }
     },
   }
