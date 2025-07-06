@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ModeSelect from '~/components/ModeSelect'
+import ModeSelect from '~/components/ModeSelect/ModeSelect'
 import Box from '@mui/material/Box'
 import AppsIcon from '@mui/icons-material/Apps'
 import { ReactComponent as trelloLogo } from '~/assets/trello.svg'
@@ -55,7 +55,6 @@ function AppBar() {
               startIcon={<LibraryAddIcon/>}>Create
             </Button>
           </Box>
-
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <TextField 
