@@ -5,7 +5,7 @@ import Card from './Card/Card'
 const COLUMN_HEADER_HEIGHT = '50px';
 const COLUMN_FOOTER_HEIGHT = '55px';
 
-function ListCards() {
+function ListCards({cards}) {
   return (
     <Box sx={{
       p:'0 5px',
@@ -31,8 +31,9 @@ function ListCards() {
       '&::-webkit-scrollbar-thumb:hover': {
         backgroundColor: '#bfc2cf',
       }}}>
+      {cards?.map(card => <Card key={card._id} card={ card } />)}
+      
 
-      <Card/>
     </Box>
   )
 }

@@ -17,12 +17,14 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import AddCardIcon from '@mui/icons-material/AddCard'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
+import { mapOrder } from '~/utils/sorts'
 
 
 const COLUMN_HEADER_HEIGHT = (theme) => theme.trello.columnHeaderHeight
 const COLUMN_FOOTER_HEIGHT = (theme) => theme.trello.columnFooterHeight
 
-function Column() {
+function Column({ column }) {
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
 
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl) 
@@ -52,9 +54,8 @@ function Column() {
                   fontSize: '1rem',
                   fontWeight: 'bold',
                   cursor: 'pointer',
-                }}
-              
-                >Column Title
+                }}>
+                  {column?.title || "Column Title"}
               </Typography>
               <Box>
                 <Tooltip title="More options">
@@ -110,7 +111,7 @@ function Column() {
             </Box>
 
             {/* List Card */}
-            <ListCards/>
+            <ListCards cards={orderedCards}/>
 
             {/* Footer box */}
             <Box sx={{
